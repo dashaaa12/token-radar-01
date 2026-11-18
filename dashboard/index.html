@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <span class="blip" aria-hidden="true"></span>
+      <div>
+        <h1>TOKEN LAUNCH RADAR</h1>
+        <p class="tagline">Pre-token protocols, ranked by implied value. Farmed before they exist.</p>
+      </div>
+    </div>
+    <div class="meta-box" id="meta-box"></div>
+  </div>
+  <p class="model-line" id="model-line"></p>
+</header>
+
+<main>
+  <section id="board-view">
+    <div class="controls">
+      <label class="ctl grow">
+        <span>Search</span>
+        <input id="q" type="search" placeholder="protocol name or slug" autocomplete="off">
+      </label>
+      <label class="ctl">
+        <span>Category</span>
+        <select id="f-category"></select>
+      </label>
+      <label class="ctl">
+        <span>Chain</span>
+        <select id="f-chain"></select>
+      </label>
+      <label class="ctl">
+        <span>Sort by</span>
+        <select id="f-sort">
+          <option value="implied">Implied value</option>
+          <option value="tvl">TVL</option>
+          <option value="change">7d change</option>
+          <option value="age">Age (oldest)</option>
+        </select>
+      </label>
+      <label class="ctl check">
+        <input id="f-watch" type="checkbox">
+        <span>Watchlist only</span>
+      </label>
+    </div>
+
+    <p class="showing" id="showing"></p>
+
+    <div class="table-wrap">
+      <table id="board">
+        <thead>
+          <tr>
+            <th class="num">#</th>
+            <th>Protocol</th>
+            <th>Category</th>
+            <th>Chains</th>
+            <th class="num">TVL</th>
+            <th class="num">7d %</th>
+            <th class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="board-body"></tbody>
+      </table>
+    </div>
+    <p class="empty" id="empty" hidden>No protocols match the current filters.</p>
+  </section>
+
+  <section id="detail-view" hidden>
+    <p><a class="back" href="#/">&larr; Back to the board</a></p>
+    <div id="detail"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Frozen snapshot data; this page runs fully offline. Implied values are a model, not a price prediction:
+  every protocol here records no token yet, and none of this is financial advice.</p>
+</footer>
+
+<script src="zz-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
